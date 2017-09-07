@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+# Add a custom wait time (limit value, in seconds).
+#
+# Chose to use a custom script instead of travis_wait, since travis_wait eats
+# logged output then spits it out at the end.
+
 set -e
 set -u
 

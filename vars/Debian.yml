@@ -1,0 +1,5 @@
+---
+awx_package_dependencies:
+  - gettext
+  - g++
+  - bzip2

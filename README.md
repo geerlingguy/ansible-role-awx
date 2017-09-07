@@ -53,6 +53,8 @@ None.
         - geerlingguy.nodejs
         - role_under_test
 
+After AWX is installed, you can log in with the default username `admin` and password `password`.
+
 ## License
 
 MIT / BSD

@@ -51,7 +51,7 @@ None.
         - geerlingguy.docker
         - geerlingguy.pip
         - geerlingguy.nodejs
-        - role_under_test
+        - geerlingguy.awx
 
 After AWX is installed, you can log in with the default username `admin` and password `password`.
 

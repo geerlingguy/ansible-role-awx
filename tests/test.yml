@@ -1,0 +1,23 @@
+---
+- hosts: all
+
+  vars:
+    nodejs_version: "6.x"
+    pip_install_packages:
+      - name: docker-py
+
+  pre_tasks:
+    - name: Update apt cache.
+      apt: update_cache=yes cache_valid_time=600
+      when: ansible_os_family == 'Debian'
+      changed_when: false
+
+  roles:
+    - name: geerlingguy.repo-epel
+      when: ansible_os_family == "RedHat"
+    - geerlingguy.git
+    - geerlingguy.ansible
+    - geerlingguy.docker
+    - geerlingguy.pip
+    - geerlingguy.nodejs
+    - role_under_test

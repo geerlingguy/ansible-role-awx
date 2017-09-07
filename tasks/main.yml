@@ -1,0 +1,21 @@
+---
+- name: Clone AWX into configured directory.
+  git:
+    repo: "{{ awx_repo }}"
+    dest: "{{ awx_repo_dir }}"
+    version: "{{ awx_version }}"
+    update: "{{ awx_keep_updated }}"
+    force: yes
+    accept_hostkey: yes
+
+- name: Run the AWX installation playbook.
+  command: "ansible-playbook -i inventory install.yml"
+  args:
+    chdir: "{{ awx_repo_dir }}/installer"
+    creates: /etc/awx_playbook_complete
+
+- name: Create a file to mark whether this playbook has completed.
+  file:
+    path: /etc/awx_playbook_complete
+    state: touch
+  changed_when: False

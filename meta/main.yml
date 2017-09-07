@@ -1,0 +1,32 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: geerlingguy
+  description: "Installs and configures AWX (Ansible Tower's open source version)."
+  company: "Midwestern Mac, LLC"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.0
+  platforms:
+    - name: EL
+      versions:
+        - 7
+    - name: Fedora
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+  galaxy_tags:
+    - automation
+    - system
+    - web
+    - django
+    - awx
+    - tower
+    - playbook
+    - ci
+    - cd

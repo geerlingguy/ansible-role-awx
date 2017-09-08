@@ -24,7 +24,7 @@ See this role's `tests/test.yml` playbook for an example that works across many 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
     awx_repo: https://github.com/ansible/awx.git
-    awx_repo_dir: "~/awx/"
+    awx_repo_dir: "~/awx"
     awx_version: devel
     awx_keep_updated: yes
 

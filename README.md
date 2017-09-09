@@ -6,7 +6,7 @@ Installs and configures [AWX](https://github.com/ansible/awx), the open source v
 
 ## Requirements
 
-Before this role runs, you need to make sure the following AWX dependencies are installed:
+Before this role runs, assuming you want the role to completely set up AWX using it's included installer, you need to make sure the following AWX dependencies are installed:
 
 | Dependency                    | Suggested Role           |
 | ----------------------------- | ------------------------ |
@@ -29,6 +29,10 @@ Available variables are listed below, along with default values (see `defaults/m
     awx_keep_updated: yes
 
 Variables to control what version of AWX is checked out and installed.
+
+    awx_run_install_playbook: yes
+
+By default, this role will run the installation playbook included with AWX (which builds a set of containers and runs them). You can disable the playbook run by setting this variable to `no`.
 
 ## Dependencies
 

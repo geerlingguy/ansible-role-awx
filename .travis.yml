@@ -6,6 +6,10 @@ env:
   - distro: ubuntu1604
   - distro: debian9
 
+  # Test without running the full playbook.
+  - distro: centos7
+    playbook: test-no-playbook.yml
+
 script:
   # Download test shim.
   - wget -O ${PWD}/tests/test.sh https://gist.githubusercontent.com/geerlingguy/73ef1e5ee45d8694570f334be385e181/raw/

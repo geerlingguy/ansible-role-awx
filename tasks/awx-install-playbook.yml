@@ -1,6 +1,11 @@
 ---
+- name: Ensure postgres_data_dir exists
+  file:
+    state: directory
+    path: "{{ postgres_data_dir }}"
+
 - name: Run the AWX installation playbook.
-  command: "ansible-playbook -i inventory install.yml"
+  command: "ansible-playbook -i inventory -e 'postgres_data_dir={{ postgres_data_dir }}' -e 'awx_secret_key={{ awx_secret_key }}' install.yml"
   args:
     chdir: "{{ awx_repo_dir }}/installer"
     creates: /etc/awx_playbook_complete

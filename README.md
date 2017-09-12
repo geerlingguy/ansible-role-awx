@@ -34,6 +34,11 @@ Variables to control what version of AWX is checked out and installed.
 
 By default, this role will run the installation playbook included with AWX (which builds a set of containers and runs them). You can disable the playbook run by setting this variable to `no`.
 
+Variables to modify the installation.
+
+    awx_secret_key: tempsecretkey
+    postgres_data_dir: /opt/awx/pgdocker
+
 ## Dependencies
 
 None.

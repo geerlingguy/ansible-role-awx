@@ -4,3 +4,7 @@ awx_repo_dir: "~/awx"
 awx_version: devel
 awx_keep_updated: yes
 awx_run_install_playbook: yes
+awx_secret_key: awxsecret
+pg_password: awxpass
+default_admin_user: admin
+default_admin_password: password

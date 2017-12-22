@@ -17,5 +17,7 @@
     force: yes
     accept_hostkey: yes
 
+- include: awx-set-passwords.yml
+
 - include: awx-install-playbook.yml
   when: awx_run_install_playbook

@@ -27,6 +27,10 @@ Available variables are listed below, along with default values (see `defaults/m
     awx_repo_dir: "~/awx"
     awx_version: devel
     awx_keep_updated: yes
+    awx_secret_key: awxsecret
+    pg_password: awxpass
+    default_admin_user: admin
+    default_admin_password: password
 
 Variables to control what version of AWX is checked out and installed.
 

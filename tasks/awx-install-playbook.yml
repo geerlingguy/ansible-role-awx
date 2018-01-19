@@ -1,9 +1,19 @@
 ---
+- name: Flip a flag to force docker images to be built locally
+  lineinfile:
+    path: "{{ awx_repo_dir }}/installer/inventory"
+    regexp: '^dockerhub_base=ansible'
+    line: '#dockerhub_base=ansible'
+  when: awx_build_images_from_git 
+
 - name: Run the AWX installation playbook.
-  command: "ansible-playbook -i inventory install.yml"
+  command: "ansible-playbook  -i inventory install.yml "
   args:
     chdir: "{{ awx_repo_dir }}/installer"
     creates: /etc/awx_playbook_complete
+  register: aws_local_run
+
+- debug: msg="{{ aws_local_run }}"
 
 - name: Create a file to mark whether this playbook has completed.
   file:

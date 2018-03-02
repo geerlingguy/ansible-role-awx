@@ -1,6 +1,11 @@
 ---
 awx_package_dependencies:
   - '@Development tools'
+  - git
   - gettext
   - gcc-c++
   - bzip2
+  - docker
+  - python2-pip.noarch
+  - make
+  - ansible

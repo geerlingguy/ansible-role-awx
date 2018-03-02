@@ -2,11 +2,10 @@
 - name: Include OS-specific variables.
   include_vars: "{{ ansible_os_family }}.yml"
 
-- name: Install AWX dependencies.
+- name: Make sure git is installed
   package:
-    name: "{{ item }}"
+    name: git
     state: present
-  with_items: "{{ awx_package_dependencies }}"
 
 - name: Clone AWX into configured directory.
   git:
@@ -17,5 +16,6 @@
     force: yes
     accept_hostkey: yes
 
-- include: awx-install-playbook.yml
+- name: Launch the playbook specific to the OS
+  include: "awx-install-{{ ansible_os_family }}.yml"
   when: awx_run_install_playbook

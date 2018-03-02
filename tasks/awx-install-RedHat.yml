@@ -1,0 +1,32 @@
+---
+- name: Install epel-release before pulling dependencies
+  package:
+    name: epel-release
+    state: present
+
+- name: Install AWX dependencies.
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ awx_package_dependencies }}"
+
+- name: install docker-py module with pip
+  pip:
+    name: docker-py
+
+- name: Docker service should be started before installation
+  service:
+    name: docker
+    state: started
+
+- name: Run the AWX installation playbook.
+  command: "ansible-playbook -i inventory install.yml"
+  args:
+    chdir: "{{ awx_repo_dir }}/installer"
+    creates: /etc/awx_playbook_complete
+
+- name: Create a file to mark whether this playbook has completed.
+  file:
+    path: /etc/awx_playbook_complete
+    state: touch
+  changed_when: False

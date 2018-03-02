@@ -1,4 +1,10 @@
 ---
+- name: Install AWX dependencies.
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ awx_package_dependencies }}"
+
 - name: Run the AWX installation playbook.
   command: "ansible-playbook -i inventory install.yml"
   args:
@@ -10,3 +16,4 @@
     path: /etc/awx_playbook_complete
     state: touch
   changed_when: False
+

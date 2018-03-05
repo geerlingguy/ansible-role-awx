@@ -27,6 +27,7 @@ Available variables are listed below, along with default values (see `defaults/m
     awx_repo_dir: "~/awx"
     awx_version: devel
     awx_keep_updated: yes
+    awx_host_port: 3001
 
 Variables to control what version of AWX is checked out and installed.
 

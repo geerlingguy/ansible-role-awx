@@ -1,5 +1,15 @@
 ---
-dependencies: []
+dependencies:
+  - role: geerlingguy.repo-epel
+  - role: geerlingguy.git
+  - role: geerlingguy.ansible
+  - role: geerlingguy.docker
+  - role: geerlingguy.pip
+    pip_install_packages:
+      - name: docker-py
+  - role: geerlingguy.nodejs
+    nodejs_version: "6.x"
+  - role: geerlingguy.awx
 
 galaxy_info:
   author: geerlingguy

@@ -17,7 +17,7 @@ Variables to control what version of AWX is checked out and installed.
 
     awx_run_install_playbook: yes
 
-Variables defined by this role for the dependencies:
+Variables defined by this role for the dependencies
     
  - geerlingguy.pip:
 
@@ -32,7 +32,7 @@ By default, this role will run the installation playbook included with AWX (whic
 
 ## Dependencies
 
-When you install this role using Galaxy the following AWX dependencies are also installed (automatically):
+When you install this role using Galaxy the following AWX dependencies are also installed automatically (see : `meta/main.yml`)
 
 | Dependency                    | Suggested Role           |
 | ----------------------------- | ------------------------ |

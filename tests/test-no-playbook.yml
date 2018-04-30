@@ -11,5 +11,4 @@
       changed_when: false
 
   roles:
-    - geerlingguy.git
     - role_under_test

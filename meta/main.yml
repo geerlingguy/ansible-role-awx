@@ -6,7 +6,10 @@ dependencies:
   - role: geerlingguy.ansible
   - role: geerlingguy.docker
   - role: geerlingguy.pip
+    pip_install_packages:
+      - name: docker-py
   - role: geerlingguy.nodejs
+    nodejs_version: "6.x"
 
 galaxy_info:
   author: geerlingguy

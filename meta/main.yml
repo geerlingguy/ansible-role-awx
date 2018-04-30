@@ -7,7 +7,6 @@ dependencies:
   - role: geerlingguy.docker
   - role: geerlingguy.pip
   - role: geerlingguy.nodejs
-  - role: geerlingguy.awx
 
 galaxy_info:
   author: geerlingguy

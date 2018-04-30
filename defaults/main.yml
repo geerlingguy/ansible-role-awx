@@ -5,3 +5,11 @@ awx_version: devel
 awx_keep_updated: yes
 awx_run_install_playbook: yes
 postgres_data_dir: /var/lib/pgdocker
+
+#### Dependencies
+## geerlingguy.pip
+pip_install_packages:
+  - name: docker-py
+
+## geerlingguy.nodejs
+nodejs_version: "6.x"

@@ -1,5 +1,12 @@
 ---
-dependencies: []
+dependencies:
+  - role: geerlingguy.repo-epel
+    when: ansible_os_family == 'RedHat'
+  - role: geerlingguy.git
+  - role: geerlingguy.ansible
+  - role: geerlingguy.docker
+  - role: geerlingguy.pip
+  - role: geerlingguy.nodejs
 
 galaxy_info:
   author: geerlingguy

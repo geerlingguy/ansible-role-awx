@@ -1,6 +1,7 @@
 ---
 dependencies:
   - role: geerlingguy.repo-epel
+    when: ansible_os_version == 'RedHat'
   - role: geerlingguy.git
   - role: geerlingguy.ansible
   - role: geerlingguy.docker

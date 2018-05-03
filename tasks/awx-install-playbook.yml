@@ -1,4 +1,9 @@
 ---
+- name: "Create {{ project_data_dir }} directory for manually managed projects on host."
+  file:
+    path: "{{ project_data_dir }}"
+    state: directory
+
 - name: Run the AWX installation playbook.
   command: "ansible-playbook -i inventory install.yml -e postgres_data_dir={{ postgres_data_dir }} -e project_data_dir={{ project_data_dir }}"
   args:

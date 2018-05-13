@@ -2,6 +2,15 @@
 awx_repo: https://github.com/ansible/awx.git
 awx_repo_dir: "~/awx"
 awx_version: devel
-awx_keep_updated: true
-awx_run_install_playbook: true
-postgres_data_dir: /var/lib/pgdocker
+awx_keep_updated: yes
+awx_run_install_playbook: yes
+modify_awx_inventory: true
+inventory:
+    dockerhub_base:
+        value: ansible
+        disabled: false
+    dockerhub_version:
+        value: latest
+        disabled: false
+    postgres_data_dir:
+        value: /var/lib/pgdocker

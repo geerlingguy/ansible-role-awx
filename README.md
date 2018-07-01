@@ -36,7 +36,12 @@ By default, this role will run the installation playbook included with AWX (whic
 
 ## Dependencies
 
-None.
++ geerlingguy.repo-epel
++ geerlingguy.git
++ geerlingguy.ansible
++ geerlingguy.docker
++ geerlingguy.pip
++ geerlingguy.nodejs
 
 ## Example Playbook
 

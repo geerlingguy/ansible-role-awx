@@ -1,5 +1,11 @@
 ---
-dependencies: []
+dependencies:
+  - geerlingguy.repo-epel
+  - geerlingguy.git
+  - geerlingguy.ansible
+  - geerlingguy.docker
+  - geerlingguy.pip
+  - geerlingguy.nodejs
 
 galaxy_info:
   author: geerlingguy

@@ -1,22 +1,31 @@
 ---
+language: python
 services: docker
 
 env:
-  - distro: centos7
-  - distro: ubuntu1604
-  - distro: debian9
+  global:
+    - ROLE_NAME: hereitis
+  matrix:
+    - MOLECULE_DISTRO: centos7
+      MOLECULE_DOCKER_COMMAND: /usr/lib/systemd/systemd
+    - MOLECULE_DISTRO: ubuntu1604
+    - MOLECULE_DISTRO: debian9
+    - MOLECULE_DISTRO: centos7
+      MOLECULE_PLAYBOOK: playbook-no-playbook.yml
 
-  # Test without running the full playbook.
-  - distro: centos7
-    playbook: test-no-playbook.yml
+install:
+  # Install test dependencies.
+  - pip install molecule docker
+
+before_script:
+  # Use actual Ansible Galaxy role name for the project directory.
+  - cd ../
+  - mv ansible-role-$ROLE_NAME geerlingguy.$ROLE_NAME
+  - cd geerlingguy.$ROLE_NAME
 
 script:
-  # Download test shim.
-  - wget -O ${PWD}/tests/test.sh https://gist.githubusercontent.com/geerlingguy/73ef1e5ee45d8694570f334be385e181/raw/
-  - chmod +x ${PWD}/tests/test.sh
-
   # Run tests (increasing the travis_wait timeout).
-  - tests/custom_travis_wait.sh ${PWD}/tests/test.sh
+  - molecule/default/custom_travis_wait.sh molecule test
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

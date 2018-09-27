@@ -1,5 +1,7 @@
 ---
-- hosts: all
+- name: Converge
+  hosts: all
+  become: true
 
   vars:
     awx_run_install_playbook: no
@@ -12,4 +14,4 @@
 
   roles:
     - geerlingguy.git
-    - role_under_test
+    - geerlingguy.awx

@@ -4,7 +4,7 @@
   become: true
 
   vars:
-    awx_run_install_playbook: no
+    awx_run_install_playbook: true
 
   pre_tasks:
     - name: Update apt cache.

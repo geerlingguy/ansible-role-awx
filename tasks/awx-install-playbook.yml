@@ -9,4 +9,4 @@
   file:
     path: /etc/awx_playbook_complete
     state: touch
-  changed_when: False
+  changed_when: false

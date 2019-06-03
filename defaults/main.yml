@@ -4,7 +4,7 @@ awx_repo_dir: "~/awx"
 awx_version: devel
 awx_keep_updated: yes
 awx_run_install_playbook: yes
-modify_awx_inventory: true
+awx_modify_inventory: true
 inventory:
     dockerhub_base:
         value: ansible

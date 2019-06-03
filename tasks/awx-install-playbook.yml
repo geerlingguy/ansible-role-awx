@@ -2,7 +2,7 @@
 - name: Run the installer with command line options
   block:
     - name: create command line options when not using the inventory.
-      set_fact: 
+      set_fact:
         installer_args: |
             {% for k,v in inventory.iteritems() -%}
             -e {{ k }}={{ v }}{{ '' if loop.last else ' ' }}
@@ -13,7 +13,7 @@
       args:
         chdir: "{{ awx_repo_dir }}/installer"
         creates: /etc/awx_playbook_complete
-  when: not modify_awx_inventory
+  when: not awx_modify_inventory
 
 - name: Run the installer with the inventory file
   block:
@@ -31,7 +31,7 @@
         destfile: "{{ awx_repo_dir }}/installer/inventory"
         regexp: '^\s*{{ item.key }}=.*$'
         state: absent
-        backup: true 
+        backup: true
       with_dict: "{{ inventory }}"
       when: item.value.disabled is defined and item.value.disabled
 
@@ -40,8 +40,8 @@
       args:
         chdir: "{{ awx_repo_dir }}/installer"
         creates: /etc/awx_playbook_complete
-  when: modify_awx_inventory
-  
+  when: awx_modify_inventory
+
 - name: Create a file to mark whether this playbook has completed.
   file:
     path: /etc/awx_playbook_complete

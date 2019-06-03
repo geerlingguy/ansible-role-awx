@@ -7,7 +7,7 @@
     name: "{{ item }}"
     state: present
   with_items: "{{ awx_package_dependencies }}"
-  when: inventory.dockerhub_base.disabled and inventory.dockerhub_version.disabled
+  when: awx_inventory.dockerhub_base.disabled and awx_inventory.dockerhub_version.disabled
 
 - name: Clone AWX into configured directory.
   git:

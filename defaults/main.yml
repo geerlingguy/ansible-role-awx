@@ -5,7 +5,7 @@ awx_version: devel
 awx_keep_updated: yes
 awx_run_install_playbook: yes
 awx_modify_inventory: true
-inventory:
+awx_inventory:
     dockerhub_base:
         value: ansible
         disabled: false

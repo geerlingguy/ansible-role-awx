@@ -4,7 +4,7 @@
     - name: create command line options when not using the inventory.
       set_fact:
         installer_args: |
-            {% for k,v in inventory.iteritems() -%}
+            {% for k,v in awx_inventory.iteritems() -%}
             -e {{ k }}={{ v }}{{ '' if loop.last else ' ' }}
             {%- endfor -%}
 
@@ -23,7 +23,7 @@
         regexp: '^\s*{{ item.key }}=.*$'
         line: "{{ item.key }}={{ item.value['value'] }}"
         state: present
-      with_dict: "{{ inventory }}"
+      with_dict: "{{ awx_inventory }}"
       when: item.value.disabled is defined and not item.value.disabled
 
     - name: Remove disabled settings in the awx inventory file from upstream
@@ -32,7 +32,7 @@
         regexp: '^\s*{{ item.key }}=.*$'
         state: absent
         backup: true
-      with_dict: "{{ inventory }}"
+      with_dict: "{{ awx_inventory }}"
       when: item.value.disabled is defined and item.value.disabled
 
     - name: Run the AWX installation playbook without command line args.

@@ -27,12 +27,24 @@ Available variables are listed below, along with default values (see `defaults/m
     awx_repo_dir: "~/awx"
     awx_version: devel
     awx_keep_updated: true
+    awx_modify_inventory: true
+    awx_inventory:
+        dockerhub_base:
+            value: ansible
+            disabled: false
+        dockerhub_version:
+            value: latest
+            disabled: false
+        postgres_data_dir:
+            value: /var/lib/pgdocker
 
 Variables to control what version of AWX is checked out and installed.
 
     awx_run_install_playbook: true
 
 By default, this role will run the installation playbook included with AWX (which builds a set of containers and runs them). You can disable the playbook run by setting this variable to `no`.
+
+Additionally, this role also lets you modify the installation variables included with AWX, which are adjusted in the AWX [inventory file](https://github.com/ansible/awx/blob/devel/installer/inventory). By modifying the `awx_inventory` variable, new values will be passed into the installer playbook provided by AWX.
 
 ## Dependencies
 
@@ -42,12 +54,12 @@ None.
 
     - hosts: awx-centos
       become: true
-    
+
       vars:
         nodejs_version: "6.x"
         pip_install_packages:
           - name: docker-py
-    
+
       roles:
         - geerlingguy.repo-epel
         - geerlingguy.git

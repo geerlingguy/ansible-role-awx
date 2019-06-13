@@ -1,6 +1,6 @@
 ---
 - name: Run the AWX installation playbook.
-  command: "ansible-playbook -i inventory install.yml -e postgres_data_dir={{ postgres_data_dir }}, docker_compose_dir={{ docker_compose_dir }}"
+  command: "ansible-playbook -i inventory install.yml -e postgres_data_dir={{ postgres_data_dir }},docker_compose_dir={{ docker_compose_dir }}"
   args:
     chdir: "{{ awx_repo_dir }}/installer"
     creates: /etc/awx_playbook_complete

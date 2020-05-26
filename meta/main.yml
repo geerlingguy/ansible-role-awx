@@ -2,6 +2,7 @@
 dependencies: []
 
 galaxy_info:
+  role_name: awx
   author: geerlingguy
   description: "Installs and configures AWX (Ansible Tower's open source version)."
   company: "Midwestern Mac, LLC"

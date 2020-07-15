@@ -4,3 +4,6 @@ awx_package_dependencies:
   - gettext
   - gcc-c++
   - bzip2
+  - python3
+  - python3-pip
+  - libselinux-python3

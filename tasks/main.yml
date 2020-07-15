@@ -17,5 +17,11 @@
     force: true
     accept_hostkey: true
 
+- name: Install Docker SDK & docker-compose
+  pip:
+    name: ['docker', 'docker-compose']
+    executable: pip3.6
+    state: present
+
 - include: awx-install-playbook.yml
   when: awx_run_install_playbook

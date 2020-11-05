@@ -5,6 +5,7 @@
 
   vars:
     nodejs_version: "6.x"
+    nodejs_install_npm_user: root
     pip_install_packages:
       - name: docker-py
 

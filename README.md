@@ -1,6 +1,6 @@
 # Ansible Role: AWX (open source Ansible Tower)
 
-[![Build Status](https://travis-ci.com/geerlingguy/ansible-role-awx.svg?branch=master)](https://travis-ci.com/geerlingguy/ansible-role-awx)
+[![CI](https://github.com/geerlingguy/ansible-role-awx/workflows/CI/badge.svg?event=push)](https://github.com/geerlingguy/ansible-role-awx/actions?query=workflow%3ACI)
 
 Installs and configures [AWX](https://github.com/ansible/awx), the open source version of [Ansible Tower](https://www.ansible.com/tower).
 

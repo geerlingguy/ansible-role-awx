@@ -20,12 +20,6 @@
 - include: awx-install-playbook.yml
   when: awx_run_install_playbook
 
-- name: Add vagrant user to docker group
-  user:
-    name: vagrant
-    groups: docker
-    append: yes
-
 - name: Pause for 30 seconds to permit awx_task to start
   pause:
     seconds: 30

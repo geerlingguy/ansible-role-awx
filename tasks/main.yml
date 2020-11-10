@@ -1,28 +1,21 @@
 ---
-- name: Check if playbook has been run before.
-  stat:
-    path: /etc/awx_playbook_complete
-  register: awx_playbook_already_run
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_os_family }}.yml"
 
-- name: Run the AWX installation playbook.
-  command: "ansible-playbook -i inventory install.yml -e postgres_data_dir={{ postgres_data_dir }}"
-  args:
-    chdir: "{{ awx_repo_dir }}/installer"
-    creates: /etc/awx_playbook_complete
+- name: Install AWX dependencies.
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ awx_package_dependencies }}"
 
-- name: Create a file to mark whether this playbook has completed.
-  file:
-    path: /etc/awx_playbook_complete
-    state: touch
-  changed_when: false
+- name: Clone AWX into configured directory.
+  git:
+    repo: "{{ awx_repo }}"
+    dest: "{{ awx_repo_dir }}"
+    version: "{{ awx_version }}"
+    update: "{{ awx_keep_updated }}"
+    force: true
+    accept_hostkey: true
 
-- name: Pause for 30 seconds to permit awx_task to start
-  pause:
-    seconds: 30
-  when: not awx_playbook_already_run.stat.exists
-
-- name: Restart container service
-  service:
-    name: docker
-    state: restarted
-  when: not awx_playbook_already_run.stat.exists
+- include: awx-install-playbook.yml
+  when: awx_run_install_playbook

@@ -42,12 +42,12 @@ None.
 
     - hosts: awx-centos
       become: true
-    
+
       vars:
-        nodejs_version: "6.x"
+        nodejs_version: "10.x"
         pip_install_packages:
-          - name: docker-py
-    
+          - name: docker-compose
+
       roles:
         - geerlingguy.repo-epel
         - geerlingguy.git

@@ -12,6 +12,13 @@
       when: ansible_os_family == 'Debian'
       changed_when: false
 
+    - name: Add /usr/local/bin to $PATH.
+      lineinfile:
+        path: /etc/environment
+        line: 'PATH="/usr/local/bin:$PATH"'
+        insertafter: EOF
+      when: ansible_os_family == 'RedHat'
+
   roles:
     - geerlingguy.git
     - geerlingguy.awx

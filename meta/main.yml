@@ -7,11 +7,12 @@ galaxy_info:
   description: "Installs and configures AWX (Ansible Tower's open source version)."
   company: "Midwestern Mac, LLC"
   license: "license (BSD, MIT)"
-  min_ansible_version: 2.0
+  min_ansible_version: 2.8
   platforms:
     - name: EL
       versions:
         - 7
+        - 8
     - name: Fedora
       versions:
         - all
@@ -27,6 +28,7 @@ galaxy_info:
     - web
     - django
     - awx
+    - ansible
     - tower
     - playbook
     - ci

@@ -4,6 +4,11 @@
     path: /etc/awx_playbook_complete
   register: awx_playbook_already_run
 
+- name: Get path
+  command: echo $PATH
+  register: pathresult
+- debug: var=pathresult
+
 - name: Run the AWX installation playbook.
   command: "ansible-playbook -i inventory install.yml -e postgres_data_dir={{ postgres_data_dir }}"
   args:

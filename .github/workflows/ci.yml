@@ -42,11 +42,11 @@ jobs:
     strategy:
       matrix:
         include:
-          - distro: fedora33
+          - distro: centos8
             playbook: converge.yml
           - distro: ubuntu2004
             playbook: converge.yml
-          - distro: fedora33
+          - distro: centos8
             playbook: playbook-no-playbook.yml
 
     steps:

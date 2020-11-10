@@ -15,7 +15,7 @@ Before this role runs, assuming you want the role to completely set up AWX using
 | Ansible                       | `geerlingguy.ansible`    |
 | Docker                        | `geerlingguy.docker`     |
 | Python Pip                    | `geerlingguy.pip`        |
-| Node.js (6.x)                 | `geerlingguy.nodejs`     |
+| Node.js (10.x)                | `geerlingguy.nodejs`     |
 
 See this role's `tests/test.yml` playbook for an example that works across many different OSes.
 
@@ -40,22 +40,24 @@ None.
 
 ## Example Playbook
 
-    - hosts: awx-centos
-      become: true
+```yaml
+- hosts: awx-centos
+  become: true
 
-      vars:
-        nodejs_version: "10.x"
-        pip_install_packages:
-          - name: docker-compose
+  vars:
+    nodejs_version: "10.x"
+    pip_install_packages:
+      - name: docker-compose
 
-      roles:
-        - geerlingguy.repo-epel
-        - geerlingguy.git
-        - geerlingguy.ansible
-        - geerlingguy.docker
-        - geerlingguy.pip
-        - geerlingguy.nodejs
-        - geerlingguy.awx
+  roles:
+    - geerlingguy.repo-epel
+    - geerlingguy.git
+    - geerlingguy.ansible
+    - geerlingguy.docker
+    - geerlingguy.pip
+    - geerlingguy.nodejs
+    - geerlingguy.awx
+```
 
 After AWX is installed, you can log in with the default username `admin` and password `password`.
 

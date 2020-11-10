@@ -16,8 +16,6 @@
       changed_when: false
 
   roles:
-    - name: geerlingguy.repo-epel
-      when: ansible_os_family == "RedHat"
     - geerlingguy.git
     - geerlingguy.ansible
     - geerlingguy.docker

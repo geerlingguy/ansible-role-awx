@@ -1,5 +1,4 @@
 ---
-- src: geerlingguy.repo-epel
 - src: geerlingguy.git
 - src: geerlingguy.ansible
 - src: geerlingguy.docker

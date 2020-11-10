@@ -52,9 +52,9 @@ None.
   roles:
     - geerlingguy.repo-epel
     - geerlingguy.git
+    - geerlingguy.pip
     - geerlingguy.ansible
     - geerlingguy.docker
-    - geerlingguy.pip
     - geerlingguy.nodejs
     - geerlingguy.awx
 ```

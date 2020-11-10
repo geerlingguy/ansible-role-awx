@@ -6,6 +6,7 @@
   vars:
     nodejs_version: "10.x"
     nodejs_install_npm_user: root
+    ansible_install_method: "pip"
     pip_install_packages:
       - name: docker
 
@@ -17,8 +18,8 @@
 
   roles:
     - geerlingguy.git
+    - geerlingguy.pip
     - geerlingguy.ansible
     - geerlingguy.docker
-    - geerlingguy.pip
     - geerlingguy.nodejs
     - geerlingguy.awx

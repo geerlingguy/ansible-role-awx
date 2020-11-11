@@ -1,0 +1,12 @@
+---
+- name: Update apt cache.
+  apt: update_cache=yes cache_valid_time=600
+  when: ansible_os_family == 'Debian'
+  changed_when: false
+
+- name: Update $PATH.
+  lineinfile:
+    path: /etc/environment
+    line: 'PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/lib/npm/bin"'
+    insertafter: EOF
+  when: ansible_os_family == 'RedHat'

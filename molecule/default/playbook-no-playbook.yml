@@ -7,17 +7,7 @@
     awx_run_install_playbook: false
 
   pre_tasks:
-    - name: Update apt cache.
-      apt: update_cache=yes cache_valid_time=600
-      when: ansible_os_family == 'Debian'
-      changed_when: false
-
-    - name: Add /usr/local/bin to $PATH.
-      lineinfile:
-        path: /etc/environment
-        line: 'PATH="/usr/local/bin:$PATH"'
-        insertafter: EOF
-      when: ansible_os_family == 'RedHat'
+    - include_tasks: environment-prep.yml
 
   roles:
     - geerlingguy.git

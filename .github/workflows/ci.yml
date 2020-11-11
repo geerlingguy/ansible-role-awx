@@ -50,7 +50,13 @@ jobs:
             playbook: playbook-no-playbook.yml
 
     steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v2
+        with:
+          path: 'geerlingguy.awx'
+
       - run: |
+          docker info
           cat /etc/docker/daemon.json
 
       - name: Stop the docker daemon.
@@ -61,15 +67,11 @@ jobs:
           echo '{"storage-driver": "vfs"}' > /etc/docker/daemon.json
 
       - run: |
+          docker info
           cat /etc/docker/daemon.json
 
       - name: Start the docker daemon.
         run: sudo systemctl start docker
-
-      - name: Check out the codebase.
-        uses: actions/checkout@v2
-        with:
-          path: 'geerlingguy.awx'
 
       - name: Set up Python 3.
         uses: actions/setup-python@v2

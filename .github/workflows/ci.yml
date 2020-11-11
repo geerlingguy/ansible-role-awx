@@ -66,12 +66,12 @@ jobs:
         run: |
           echo '{"cgroup-parent":"/actions_job","storage-driver":"vfs"}' | sudo tee /etc/docker/daemon.json
 
+      - name: Start the docker daemon.
+        run: sudo systemctl start docker
+
       - run: |
           docker info
           cat /etc/docker/daemon.json
-
-      - name: Start the docker daemon.
-        run: sudo systemctl start docker
 
       - name: Set up Python 3.
         uses: actions/setup-python@v2

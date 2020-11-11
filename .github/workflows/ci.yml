@@ -50,6 +50,24 @@ jobs:
             playbook: playbook-no-playbook.yml
 
     steps:
+      - run: |
+          docker info
+          cat /etc/docker/daemon.json
+
+      - name: Stop the docker daemon.
+        run: sudo systemctl stop docker
+
+      - name: Force the docker daemon to use vfs.
+        run: |
+          echo '{"storage-driver": "vfs"}' > /etc/docker/daemon.json
+
+      - run: |
+          docker info
+          cat /etc/docker/daemon.json
+
+      - name: Start the docker daemon.
+        run: sudo systemctl start docker
+
       - name: Check out the codebase.
         uses: actions/checkout@v2
         with:

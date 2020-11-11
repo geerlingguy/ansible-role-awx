@@ -64,7 +64,7 @@ jobs:
 
       - name: Force the docker daemon to use vfs.
         run: |
-          echo '{"storage-driver": "vfs"}' > /etc/docker/daemon.json
+          echo '{"cgroup-parent":"/actions_job","storage-driver":"vfs"}' | sudo tee /etc/docker/daemon.json
 
       - run: |
           docker info

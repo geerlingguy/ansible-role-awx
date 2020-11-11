@@ -17,7 +17,7 @@ Before this role runs, assuming you want the role to completely set up AWX using
 | Python Pip                    | `geerlingguy.pip`        |
 | Node.js (10.x)                | `geerlingguy.nodejs`     |
 
-See this role's `tests/test.yml` playbook for an example that works across many different OSes.
+See this role's [`molecule/default/converge.yml`](molecule/default/converge.yml) playbook for an example that works across many different OSes.
 
 ## Role Variables
 
@@ -32,7 +32,7 @@ Variables to control what version of AWX is checked out and installed.
 
     awx_run_install_playbook: true
 
-By default, this role will run the installation playbook included with AWX (which builds a set of containers and runs them). You can disable the playbook run by setting this variable to `no`.
+By default, this role will run the installation playbook included with AWX (which builds a set of containers and runs them). You can disable the playbook run by setting this variable to `false`.
 
 ## Dependencies
 
@@ -46,7 +46,9 @@ None.
 
   vars:
     nodejs_version: "10.x"
+    docker_install_compose: false
     pip_install_packages:
+      - name: docker
       - name: docker-compose
 
   roles:

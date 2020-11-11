@@ -7,8 +7,10 @@
     nodejs_version: "10.x"
     nodejs_install_npm_user: root
     ansible_install_method: "pip"
+    docker_install_compose: false
     pip_install_packages:
       - name: docker
+      - name: docker-compose
 
   pre_tasks:
     - include_tasks: environment-prep.yml

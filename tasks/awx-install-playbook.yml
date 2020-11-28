@@ -21,10 +21,10 @@
 - name: Pause for 30 seconds to permit awx_task to start
   pause:
     seconds: 30
-  when: not awx_playbook_already_run.stat.exists
+  when: not awx_playbook_already_run.stat.exists and awx_workaround == true
 
 - name: Restart container service
   service:
     name: docker
     state: restarted
-  when: not awx_playbook_already_run.stat.exists
+  when: not awx_playbook_already_run.stat.exists and awx_workaround == true

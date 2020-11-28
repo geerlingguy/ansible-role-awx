@@ -34,6 +34,12 @@ Variables to control what version of AWX is checked out and installed.
 
 By default, this role will run the installation playbook included with AWX (which builds a set of containers and runs them). You can disable the playbook run by setting this variable to `false`.
 
+Variables to control AWX workarounds:
+
+    awx_workaround: false
+
+By default, this role will no longer use a workaround that was previously necessary when running AWX for the first time after installation. You can re-enable the workaround by setting this variable to `true`.
+
 ## Dependencies
 
 None.

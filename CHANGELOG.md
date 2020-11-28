@@ -1,3 +1,7 @@
+v2.1.2 - Tagged by Zorlin
+* Change the way the "default secrets" warnings work
+* Default to using the race condition workaround
+
 v2.1.1 - Tagged by Zorlin
 * Fix some minor issues brought up by the linters
 

@@ -4,7 +4,7 @@ awx_repo_dir: "~/awx"
 awx_version: devel
 awx_keep_updated: true
 awx_run_install_playbook: true
-awx_workaround: false
+awx_workaround: true
 awx_secrets_path: "~/.awx_secrets.yml"
 awx_admin_password: password
 awx_pg_password: awxpass

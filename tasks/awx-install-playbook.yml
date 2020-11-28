@@ -21,18 +21,18 @@
 - name: Pause for 30 seconds to permit awx_task to start
   pause:
     seconds: 30
-  when: not awx_playbook_already_run.stat.exists and awx_workaround == true
+  when: not awx_playbook_already_run.stat.exists and awx_workaround
 
 - name: Restart container service
   service:
     name: docker
     state: restarted
-  when: not awx_playbook_already_run.stat.exists and awx_workaround == true
+  when: not awx_playbook_already_run.stat.exists and awx_workaround
 
 # Emit warnings if needed
 - name: Check if we are using the default secret key
   debug:
-    msg: "WARNING: You are using the default awx_secret_key. This is insecure, but fine for development and testing."
+    msg: "WARNING: You are using the default awx_secret_key. This is insecure, but fine for testing."
   when: awx_secret_key == 'awxsecret'
   changed_when: true
 

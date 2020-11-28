@@ -34,10 +34,8 @@
   debug:
     msg: "WARNING: You are using the default awx_secret_key. This is insecure, but fine for testing."
   when: awx_secret_key == 'awxsecret'
-  changed_when: true
 
 - name: Check if we are using the default AWX admin password
   debug:
     msg: "WARNING: You are using the default AWX admin password. Make sure to change it after installation!"
   when: awx_admin_password == 'password'
-  changed_when: true

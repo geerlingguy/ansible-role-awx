@@ -17,5 +17,11 @@
     force: true
     accept_hostkey: true
 
+- name: Install a secrets file for AWX.
+  template:
+    src: ".awx_secrets.yml.j2"
+    dest: "{{ awx_secrets_path }}"
+    mode: "0400"
+
 - include: awx-install-playbook.yml
   when: awx_run_install_playbook

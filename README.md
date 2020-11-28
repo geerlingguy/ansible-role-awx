@@ -28,6 +28,14 @@ Available variables are listed below, along with default values (see `defaults/m
     awx_version: devel
     awx_keep_updated: true
 
+Key and password variables:
+
+    awx_admin_password: password
+    awx_pg_password: awxpass
+    awx_secret_key: awxsecret
+
+These are the default passwords and keys used when deploying AWX. For a production setup, it's **highly recommended** that you change all of them, especially the secret key. The playbook will warn you if you are using the default admin password or secret key.
+
 Variables to control what version of AWX is checked out and installed.
 
     awx_run_install_playbook: true

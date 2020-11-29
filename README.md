@@ -44,9 +44,9 @@ By default, this role will run the installation playbook included with AWX (whic
 
 Variables to control AWX workarounds:
 
-    awx_workaround: false
+    awx_workaround: true
 
-By default, this role will no longer use a workaround that was previously necessary when running AWX for the first time after installation. You can re-enable the workaround by setting this variable to `true`.
+By default, this role will use a workaround that is sometimes necessary when running AWX for the first time after installation. You can disnable the workaround by setting this variable to `false`.
 
 ## Dependencies
 

@@ -5,7 +5,7 @@
     regexp: "^(#\\s?)?{{item.key}}=.*"
     line: "{{item.key}}={{item.value}}"
   loop: "{{ awx_custom_vars | dict2items }}"
-  
+
 - name: Check if playbook has been run before.
   stat:
     path: /etc/awx_playbook_complete

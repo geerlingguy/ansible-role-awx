@@ -1,5 +1,7 @@
 # Ansible Role: AWX (open source Ansible Tower)
 
+> **DEPRECATED**: This role has been deprecated. AWX installation is a lot different than it was when I first created the role, and continues evolving. Please follow the official install guide and if you need automation around it, please consider the [awx-operator](https://github.com/ansible/awx-operator).
+
 [![CI](https://github.com/geerlingguy/ansible-role-awx/workflows/CI/badge.svg?event=push)](https://github.com/geerlingguy/ansible-role-awx/actions?query=workflow%3ACI)
 
 Installs and configures [AWX](https://github.com/ansible/awx), the open source version of [Ansible Tower](https://www.ansible.com/tower).
